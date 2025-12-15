@@ -115,11 +115,7 @@ export default function Navbar() {
           <li onClick={() => setOpen(false)}>Contact</li>
         </ul>
 
-        {/* DESKTOP CALL BUTTON */}
-        <a href="tel:+919999999999" className="nav-btn">
-          📞 Call Now
-        </a>
-
+      
         {/* HAMBURGER */}
         <div className="hamburger" onClick={() => setOpen(!open)}>
           {open ? "✖" : "☰"}
