@@ -60,7 +60,7 @@ export default function Navbar() {
 
       <nav className="navbar">
         <div className="nav-logo">
-          <img src="/LogoImage.jpeg" alt="VIPRA" />
+          <img src="/Logoimage.jpeg" alt="VIPRA" />
           <span>VIPRA</span>
         </div>
 
