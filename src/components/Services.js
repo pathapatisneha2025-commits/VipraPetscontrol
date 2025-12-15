@@ -3,51 +3,61 @@ const services = [
     icon: "🪳",
     title: "Cockroach Control",
     desc: "Advanced gel baiting and odorless sprays target cockroaches in kitchens, bathrooms, and hidden cracks. Safe for kids & pets with long-lasting protection.",
+    tags: ["Safe for kids & pets", "Long-lasting protection"],
   },
   {
     icon: "🦟",
     title: "Mosquito Control",
     desc: "Fogging, larvicide spraying, and outdoor control to stop breeding and protect against Dengue, Malaria, and Chikungunya.",
+    tags: ["Best for homes", "Outdoor control"],
   },
   {
     icon: "🪲",
     title: "Termite Control (Pre & Post Construction)",
     desc: "Chemical barriers, drilling-injection methods, and soil treatment with 1–5 years service warranty available.",
+    tags: ["Pre & Post Construction", "1–5 years warranty"],
   },
   {
     icon: "🛏️",
     title: "Bed Bug Control",
     desc: "Herbal + chemical two-step treatment eliminates bed bugs from mattresses, furniture, and curtains completely.",
+    tags: ["Herbal + chemical", "Complete removal"],
   },
   {
     icon: "🐀",
     title: "Rat & Rodent Control",
     desc: "Traps, baiting systems, and entry-point blocking for homes, warehouses, restaurants, and offices.",
+    tags: ["Homes & warehouses", "Entry-point blocking"],
   },
   {
     icon: "🦎",
     title: "Lizard Control",
     desc: "Odorless surface sprays and repellents prevent lizards from entering or sticking to walls. Safe and highly effective.",
+    tags: ["Odorless spray", "Safe solution"],
   },
   {
     icon: "🐝",
     title: "Honeybee Removal",
     desc: "Eco-friendly honeybee removal with safe relocation of hives by trained professionals.",
+    tags: ["Eco-friendly", "Safe relocation"],
   },
   {
     icon: "🐜",
     title: "Red & Black Ant Control",
     desc: "Colony-targeting gel baits and odorless residual sprays to prevent re-infestation indoors and outdoors.",
+    tags: ["Colony targeting", "No re-infestation"],
   },
   {
     icon: "🐍",
     title: "Snake Repellent Treatment",
     desc: "Herbal repellents and environment-friendly chemicals keep snakes away without harming them.",
+    tags: ["Herbal treatment", "Non-harmful"],
   },
   {
     icon: "🪵",
     title: "Oil Spray for Woodwork",
     desc: "Special oil-based treatment for furniture, doors, cupboards, and cabinets to prevent termites and moisture damage.",
+    tags: ["Furniture protection", "Anti-termite"],
   },
 ];
 
@@ -56,34 +66,44 @@ export default function Services() {
     <>
       <style>{`
         .services-section {
-          background: #050b14;
-          padding: 100px 5%;
+          background: radial-gradient(circle at top, #0b1625, #050b14);
+          padding: 110px 5%;
           color: #fff;
         }
 
         .services-container {
-          max-width: 1200px;
+          max-width: 1300px;
           margin: auto;
+        }
+
+        .services-badge {
+          display: inline-block;
+          background: rgba(155,226,45,0.15);
+          color: #9be22d;
+          padding: 6px 18px;
+          border-radius: 30px;
+          font-size: 14px;
+          font-weight: 600;
+          margin-bottom: 18px;
         }
 
         .services-header {
           text-align: center;
-          margin-bottom: 60px;
+          margin-bottom: 80px;
         }
 
         .services-header h2 {
-          font-size: 44px;
-          font-weight: 700;
-          margin-bottom: 12px;
-        }
-
-        .services-header h2 span {
-          color: #1e90ff;
+          font-size: 48px;
+          font-weight: 800;
+          margin-bottom: 14px;
         }
 
         .services-header p {
+          max-width: 700px;
+          margin: auto;
           color: #9fb0c0;
           font-size: 16px;
+          line-height: 1.6;
         }
 
         .services-grid {
@@ -94,32 +114,56 @@ export default function Services() {
 
         .service-card {
           background: linear-gradient(180deg, #0b1625, #050b14);
-          border-radius: 18px;
-          padding: 30px;
-          border: 1px solid #111c2e;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          border-radius: 22px;
+          padding: 34px;
+          border: 1px solid rgba(255,255,255,0.08);
+          transition: 0.35s ease;
         }
 
         .service-card:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 0 30px rgba(30, 144, 255, 0.25);
+          transform: translateY(-8px);
+          box-shadow: 0 25px 60px rgba(0,0,0,0.6);
         }
 
-        .service-icon {
-          font-size: 38px;
-          margin-bottom: 18px;
+        .icon-box {
+          width: 54px;
+          height: 54px;
+          background: linear-gradient(135deg, #143b73, #0d2545);
+          border-radius: 14px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 26px;
+          margin-bottom: 22px;
         }
 
         .service-card h3 {
           font-size: 22px;
-          margin-bottom: 10px;
-          color: #1e90ff;
+          font-weight: 700;
+          margin-bottom: 12px;
         }
 
         .service-card p {
-          color: #cfd8dc;
           font-size: 15px;
-          line-height: 1.6;
+          color: #cfd8dc;
+          line-height: 1.65;
+        }
+
+        .tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-top: 20px;
+        }
+
+        .tag {
+          background: rgba(155,226,45,0.14);
+          color: #9be22d;
+          padding: 6px 14px;
+          font-size: 13px;
+          border-radius: 999px;
+          border: 1px solid rgba(155,226,45,0.25);
+          font-weight: 600;
         }
 
         @media (max-width: 1000px) {
@@ -134,7 +178,7 @@ export default function Services() {
           }
 
           .services-header h2 {
-            font-size: 36px;
+            font-size: 34px;
           }
         }
       `}</style>
@@ -143,20 +187,26 @@ export default function Services() {
         <div className="services-container">
 
           <div className="services-header">
-            <h2>
-              Our <span>Services</span>
-            </h2>
+            <span className="services-badge">Our Services</span>
+            <h2>Professional Pest Control Solutions</h2>
             <p>
-              Complete pest control solutions for homes, apartments, offices, and commercial spaces
+              We offer comprehensive pest control services to protect your home
+              and business from all types of pests.
             </p>
           </div>
 
           <div className="services-grid">
             {services.map((service, index) => (
               <div className="service-card" key={index}>
-                <div className="service-icon">{service.icon}</div>
+                <div className="icon-box">{service.icon}</div>
                 <h3>{service.title}</h3>
                 <p>{service.desc}</p>
+
+                <div className="tags">
+                  {service.tags.map((tag, i) => (
+                    <span className="tag" key={i}>{tag}</span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>

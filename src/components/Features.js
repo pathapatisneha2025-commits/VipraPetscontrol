@@ -4,7 +4,9 @@ export default function Features() {
       <style>{`
         .features-section {
           background: linear-gradient(180deg, #0a1220, #050b14);
-          padding: 50px 5%;
+          padding: 70px 5%;
+          border-top: 1px solid rgba(255,255,255,0.08);
+          border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .features-container {
@@ -15,38 +17,26 @@ export default function Features() {
         .features-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 30px;
-          align-items: center;
+          gap: 40px;
           text-align: center;
         }
 
-        .feature-item {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 12px;
-          color: #ffffff;
-          font-size: 16px;
-          font-weight: 500;
+        .feature-box h2 {
+          font-size: 42px;
+          color: #9cff00;
+          margin-bottom: 8px;
+          font-weight: 700;
         }
 
-        .feature-icon {
-          width: 26px;
-          height: 26px;
-          border-radius: 50%;
-          border: 2px solid #1e90ff;
-          color: #1e90ff;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 14px;
-          flex-shrink: 0;
+        .feature-box p {
+          color: #b7c2d4;
+          font-size: 16px;
         }
 
         @media (max-width: 900px) {
           .features-grid {
             grid-template-columns: repeat(2, 1fr);
-            row-gap: 20px;
+            gap: 30px;
           }
         }
 
@@ -60,25 +50,25 @@ export default function Features() {
       <section className="features-section">
         <div className="features-container">
           <div className="features-grid">
-            
-            <div className="feature-item">
-              <div className="feature-icon">✓</div>
-              Licensed & Certified Professionals
+
+            <div className="feature-box">
+              <h2>10+</h2>
+              <p>Years Experience</p>
             </div>
 
-            <div className="feature-item">
-              <div className="feature-icon">✓</div>
-              Eco-Friendly Solutions
+            <div className="feature-box">
+              <h2>5000+</h2>
+              <p>Happy Customers</p>
             </div>
 
-            <div className="feature-item">
-              <div className="feature-icon">✓</div>
-              24/7 Emergency Services
+            <div className="feature-box">
+              <h2>10</h2>
+              <p>Expert Services</p>
             </div>
 
-            <div className="feature-item">
-              <div className="feature-icon">✓</div>
-              Satisfaction Guaranteed
+            <div className="feature-box">
+              <h2>100%</h2>
+              <p>Satisfaction</p>
             </div>
 
           </div>

@@ -3,15 +3,10 @@ export default function CtaSection() {
     <>
       <style>{`
         .cta-section {
-          background: radial-gradient(
-              circle at top,
-              rgba(30, 144, 255, 0.15),
-              transparent 60%
-            ),
-            linear-gradient(180deg, #050b14, #0b1625);
-          padding: 120px 5%;
+          background: radial-gradient(circle at right, #1c2d14, #050b14 70%);
+          padding: 120px 6%;
           text-align: center;
-          color: #ffffff;
+          color: #fff;
         }
 
         .cta-container {
@@ -19,64 +14,93 @@ export default function CtaSection() {
           margin: auto;
         }
 
-        .cta-title {
-          font-size: 42px;
-          font-weight: 700;
-          margin-bottom: 18px;
+        .cta-container h2 {
+          font-size: 56px;
+          font-weight: 800;
           line-height: 1.2;
+          margin-bottom: 22px;
         }
 
-        .cta-desc {
+        .cta-container h2 span {
+          color: #9be22d;
+        }
+
+        .cta-container p {
+          font-size: 17px;
+          color: #cfd8dc;
+          max-width: 720px;
+          margin: 0 auto 45px;
+        }
+
+        .cta-buttons {
+          display: flex;
+          gap: 22px;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .cta-call {
+          background: #9be22d;
+          color: #000;
+          padding: 18px 38px;
+          border-radius: 40px;
           font-size: 16px;
-          color: #a9b6c4;
-          max-width: 620px;
-          margin: 0 auto 42px;
-          line-height: 1.6;
-        }
-
-        .cta-main-btn {
+          font-weight: 700;
+          text-decoration: none;
           display: inline-flex;
           align-items: center;
-          gap: 10px;
-          background: #1e90ff;
-          color: #ffffff;
-          padding: 16px 34px;
-          font-size: 16px;
-          font-weight: 600;
-          border-radius: 16px;
-          text-decoration: none;
-          transition: all 0.3s ease;
-          box-shadow: 0 10px 30px rgba(30, 144, 255, 0.35);
+          gap: 12px;
+          box-shadow: 0 0 30px rgba(155, 226, 45, 0.5);
         }
 
-        .cta-main-btn:hover {
-          background: #187bcd;
-          transform: translateY(-2px);
-          box-shadow: 0 14px 40px rgba(30, 144, 255, 0.45);
+        .cta-call:hover {
+          background: #86c91f;
+        }
+
+        .cta-message {
+          border: 2px solid rgba(255,255,255,0.3);
+          color: #fff;
+          padding: 18px 36px;
+          border-radius: 40px;
+          font-size: 16px;
+          font-weight: 700;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .cta-message:hover {
+          background: rgba(255,255,255,0.08);
         }
 
         @media (max-width: 768px) {
-          .cta-title {
-            font-size: 32px;
-          }
-
-          .cta-desc {
-            font-size: 15px;
+          .cta-container h2 {
+            font-size: 40px;
           }
         }
       `}</style>
 
       <section className="cta-section">
         <div className="cta-container">
-          <h2 className="cta-title">Ready to Protect Your Home?</h2>
-          <p className="cta-desc">
-            Don't let pests take over. Contact VIPRA today and enjoy a
-            pest-free environment.
+          <h2>
+            Ready to Make Your Home <span>Pest-Free?</span>
+          </h2>
+
+          <p>
+            Contact us today for a free inspection and consultation. Our experts
+            are ready to help you with all your pest control needs.
           </p>
 
-          <a href="#contact" className="cta-main-btn">
-            Contact Us Today <span>→</span>
-          </a>
+          <div className="cta-buttons">
+            <a href="tel:+919999999999" className="cta-call">
+              📞 +91 99999 99999
+            </a>
+
+            <a href="#contact" className="cta-message">
+              Send a Message →
+            </a>
+          </div>
         </div>
       </section>
     </>

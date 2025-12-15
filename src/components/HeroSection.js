@@ -2,189 +2,137 @@ export default function HeroSection() {
   return (
     <>
       <style>{`
-        .hero-section {
-          background: #050b14;
-          padding: 120px 5% 80px;
+        .hero {
+          min-height: 100vh;
+          background: radial-gradient(circle at top, #0f1c2e, #050b14 70%);
           color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 140px 5% 100px;
+          text-align: center;
         }
 
-        .hero-container {
-          max-width: 1200px;
+        .hero-content {
+          max-width: 900px;
           margin: auto;
         }
 
-        .hero-flex {
-          display: flex;
-          align-items: center;
-          gap: 60px;
+        .hero-logo {
+          width: 300px;
+          height: 300px;
+          margin-bottom: 30px;
+          animation: float 4s ease-in-out infinite;
         }
 
-        .hero-text {
-          flex: 1;
-          text-align: left;
-        }
-
-        .hero-text h1 {
-          font-size: 56px;
-          font-weight: 700;
+        .hero h1 {
+          font-size: 64px;
+          font-weight: 800;
           line-height: 1.2;
-          margin-bottom: 20px;
+          margin-bottom: 25px;
         }
 
-        .text-gradient {
-          background: linear-gradient(90deg, #1e90ff, #4fc3f7);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+        .hero h1 .green {
+          color: #9be22d;
         }
 
-        .hero-text p {
+        .hero h1 .blue {
+          color: #4aa3ff;
+        }
+
+        .hero p {
           font-size: 18px;
           color: #cfd8dc;
-          max-width: 520px;
-          margin-bottom: 35px;
+          max-width: 720px;
+          margin: 0 auto 45px;
         }
 
         .hero-buttons {
           display: flex;
-          gap: 16px;
+          gap: 20px;
+          justify-content: center;
+          flex-wrap: wrap;
         }
 
         .btn-primary {
-          background: #1e90ff;
-          color: #fff;
-          padding: 14px 30px;
-          border-radius: 10px;
+          background: #9be22d;
+          color: #000;
+          padding: 16px 34px;
+          border-radius: 40px;
+          font-weight: 700;
           text-decoration: none;
-          font-weight: 600;
           display: inline-flex;
           align-items: center;
-          gap: 8px;
-          animation: pulse 2s infinite;
+          gap: 10px;
+          box-shadow: 0 0 30px rgba(155, 226, 45, 0.5);
         }
 
         .btn-primary:hover {
-          background: #187bcd;
+          background: #86c91f;
         }
 
         .btn-outline {
-          border: 1px solid #2a3b4d;
-          color: #fff;
-          padding: 14px 30px;
-          border-radius: 10px;
+          border: 2px solid #4aa3ff;
+          color: #4aa3ff;
+          padding: 16px 34px;
+          border-radius: 40px;
+          font-weight: 700;
           text-decoration: none;
-          font-weight: 600;
           display: inline-flex;
           align-items: center;
-          gap: 8px;
+          gap: 10px;
         }
 
         .btn-outline:hover {
-          background: #0b1625;
-        }
-
-        .hero-image {
-          flex: 1;
-          display: flex;
-          justify-content: center;
-        }
-
-        .image-wrapper {
-          position: relative;
-        }
-
-        .image-glow {
-          position: absolute;
-          inset: 0;
-          background: rgba(30, 144, 255, 0.25);
-          filter: blur(80px);
-          border-radius: 50%;
-        }
-
-        .hero-image img {
-          position: relative;
-          width: 320px;
-          height: 320px;
-          object-fit: contain;
-          border-radius: 24px;
-          animation: float 4s ease-in-out infinite;
-          box-shadow: 0 0 40px rgba(30, 144, 255, 0.35);
+          background: rgba(74, 163, 255, 0.1);
         }
 
         @keyframes float {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-12px);
-          }
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-12px); }
         }
 
-        @keyframes pulse {
-          0% {
-            box-shadow: 0 0 0 0 rgba(30, 144, 255, 0.6);
-          }
-          70% {
-            box-shadow: 0 0 0 18px rgba(30, 144, 255, 0);
-          }
-          100% {
-            box-shadow: 0 0 0 0 rgba(30, 144, 255, 0);
-          }
-        }
-
-        @media (max-width: 900px) {
-          .hero-flex {
-            flex-direction: column;
-            text-align: center;
-          }
-
-          .hero-text h1 {
+        @media (max-width: 768px) {
+          .hero h1 {
             font-size: 42px;
           }
 
-          .hero-buttons {
-            justify-content: center;
-            flex-wrap: wrap;
+          .hero-logo {
+            width: 140px;
           }
         }
       `}</style>
 
-      <section className="hero-section">
-        <div className="hero-container">
-          <div className="hero-flex">
-            
-            {/* LEFT CONTENT */}
-            <div className="hero-text">
-              <h1>
-                Your <span className="text-gradient">Shield</span> Against Pests
-              </h1>
+      <section className="hero">
+        <div className="hero-content">
+          {/* LOGO */}
+          <img
+            src="/Logoimage.jpeg"
+            alt="VIPRA Pest Control"
+            className="hero-logo"
+          />
 
-              <p>
-                Professional pest control services that protect your home and family.
-                Say goodbye to unwanted pests with VIPRA's expert solutions.
-              </p>
+          {/* HEADING */}
+          <h1>
+            Your <span className="green">Shield</span> Against{" "}
+            <span className="blue">Pests</span>
+          </h1>
 
-              <div className="hero-buttons">
-                <a href="#contact" className="btn-primary">
-                  Get Free Quote →
-                </a>
+          {/* SUBTEXT */}
+          <p>
+            Professional pest control services for homes and businesses. Safe,
+            effective, and guaranteed results with eco-friendly solutions.
+          </p>
 
-                <a href="tel:+1234567890" className="btn-outline">
-                  📞 Call Now
-                </a>
-              </div>
-            </div>
+          {/* BUTTONS */}
+          <div className="hero-buttons">
+            <a href="tel:+919999999999" className="btn-primary">
+              📞 Call For Free Inspection
+            </a>
 
-            {/* RIGHT IMAGE */}
-            <div className="hero-image">
-              <div className="image-wrapper">
-                <div className="image-glow"></div>
-                <img
-                  src="/Logoimage.jpeg"
-                  alt="VIPRA - Your Shield Against Pests"
-                />
-              </div>
-            </div>
-
+            <a href="#services" className="btn-outline">
+              View Services →
+            </a>
           </div>
         </div>
       </section>

@@ -1,208 +1,236 @@
 export default function WhyChooseUs() {
-  const reasons = [
-    {
-      title: "Expert Technicians",
-      desc: "Our team is trained and certified in the latest pest control methods",
-    },
-    {
-      title: "Safe & Effective",
-      desc: "We use eco-friendly products that are safe for your family and pets",
-    },
-    {
-      title: "Guaranteed Results",
-      desc: "100% satisfaction guarantee on all our services",
-    },
-    {
-      title: "Affordable Pricing",
-      desc: "Competitive rates with no hidden fees",
-    },
-  ];
-
   return (
     <>
       <style>{`
         .why-section {
-          background: #0b1625;
-          padding: 100px 5%;
-          color: #ffffff;
+          background: linear-gradient(120deg, #050b14, #0c1624);
+          padding: 120px 6%;
+          color: #fff;
         }
 
         .why-container {
           max-width: 1200px;
           margin: auto;
-        }
-
-        .why-flex {
-          display: flex;
+          display: grid;
+          grid-template-columns: 1.2fr 1fr;
+          gap: 60px;
           align-items: center;
-          justify-content: space-between;
-          gap: 80px;
         }
 
-        .why-left {
-          flex: 1;
-        }
-
-        .why-left h2 {
-          font-size: 42px;
-          font-weight: 700;
-          margin-bottom: 36px;
-          line-height: 1.2;
-        }
-
-        .why-left h2 span {
-          color: #1e90ff;
-        }
-
-        .why-list {
-          display: flex;
-          flex-direction: column;
-          gap: 26px;
-        }
-
-        /* 🔥 FIXED ALIGNMENT */
-        .why-item {
-          display: flex;
-          align-items: center; /* KEY FIX */
-          gap: 18px;
-        }
-
-        .why-icon {
-          width: 44px;
-          height: 44px;
-          border-radius: 12px;
-          background: rgba(30, 144, 255, 0.15);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 20px;
-          color: #1e90ff;
-          flex-shrink: 0;
-        }
-
-        .why-text h4 {
-          font-size: 18px;
-          font-weight: 600;
-          margin: 0;
-          line-height: 1.2;
-        }
-
-        .why-text p {
-          margin-top: 6px;
+        .badge {
+          display: inline-block;
+          background: rgba(155, 226, 45, 0.15);
+          color: #9be22d;
+          padding: 8px 18px;
+          border-radius: 30px;
           font-size: 14px;
-          color: #a9b6c4;
-          line-height: 1.6;
-          max-width: 460px;
-        }
-
-        .why-right {
-          flex: 1;
-          display: flex;
-          justify-content: center;
-        }
-
-        .cta-card {
-          background: linear-gradient(180deg, #0b1625, #050b14);
-          border: 1px solid #152238;
-          border-radius: 22px;
-          padding: 42px;
-          max-width: 380px;
-          width: 100%;
-        }
-
-        .cta-icon {
-          font-size: 38px;
-          color: #1e90ff;
+          font-weight: 600;
           margin-bottom: 20px;
         }
 
-        .cta-card h3 {
-          font-size: 24px;
-          font-weight: 700;
-          margin-bottom: 12px;
+        .why-left h2 {
+          font-size: 56px;
+          font-weight: 800;
+          line-height: 1.15;
+          margin-bottom: 20px;
         }
 
-        .cta-card p {
+        .why-left h2 span {
+          color: #9be22d;
+        }
+
+        .why-left p {
+          font-size: 17px;
+          color: #cfd8dc;
+          max-width: 560px;
+          margin-bottom: 35px;
+        }
+
+        .features {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px 40px;
+        }
+
+        .feature {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          font-size: 15px;
+          color: #fff;
+        }
+
+        .feature span {
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          background: #9be22d;
+          color: #000;
+          font-weight: 800;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           font-size: 14px;
-          color: #a9b6c4;
-          line-height: 1.6;
-          margin-bottom: 28px;
         }
 
-        .cta-btn {
-          display: block;
+        .why-card {
+          background: radial-gradient(circle at top, #101c2f, #050b14);
+          border-radius: 28px;
+          padding: 40px;
+          box-shadow: 0 0 60px rgba(0,0,0,0.6);
+        }
+
+        .guarantee {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          margin-bottom: 20px;
+        }
+
+        .shield {
+          width: 42px;
+          height: 42px;
+          border-radius: 50%;
+          border: 2px solid #9be22d;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #9be22d;
+          font-size: 20px;
+        }
+
+        .guarantee h3 {
+          font-size: 24px;
+          margin: 0;
+        }
+
+        .guarantee p {
+          font-size: 14px;
+          color: #cfd8dc;
+          margin: 0;
+        }
+
+        .stars {
+          margin: 20px 0 30px;
+        }
+
+        .star-row {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 10px;
+          font-size: 14px;
+          color: #cfd8dc;
+        }
+
+        .star {
+          color: #9be22d;
+          font-size: 18px;
+        }
+
+        .quote-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
           width: 100%;
-          text-align: center;
-          background: #1e90ff;
-          color: #ffffff;
-          padding: 14px;
-          border-radius: 14px;
+          background: #9be22d;
+          color: #000;
+          padding: 18px;
+          border-radius: 40px;
+          font-size: 16px;
+          font-weight: 700;
           text-decoration: none;
-          font-weight: 600;
-          transition: all 0.3s ease;
         }
 
-        .cta-btn:hover {
-          background: #187bcd;
-          transform: translateY(-1px);
+        .quote-btn:hover {
+          background: #86c91f;
         }
 
         @media (max-width: 900px) {
-          .why-flex {
-            flex-direction: column;
-            text-align: center;
+          .why-container {
+            grid-template-columns: 1fr;
           }
 
-          .why-item {
-            align-items: flex-start;
-            text-align: left;
+          .why-left h2 {
+            font-size: 42px;
           }
 
-          .cta-card {
-            margin-top: 40px;
+          .features {
+            grid-template-columns: 1fr;
           }
         }
       `}</style>
 
       <section className="why-section">
         <div className="why-container">
-          <div className="why-flex">
+          
+          {/* LEFT CONTENT */}
+          <div className="why-left">
+            <div className="badge">Why Choose Us</div>
 
-            {/* LEFT */}
-            <div className="why-left">
-              <h2>
-                Why Choose <span>VIPRA?</span>
-              </h2>
+            <h2>
+              Trusted by <span>Thousands</span> of Families
+            </h2>
 
-              <div className="why-list">
-                {reasons.map((item, index) => (
-                  <div className="why-item" key={index}>
-                    <div className="why-icon">🛡️</div>
-                    <div className="why-text">
-                      <h4>{item.title}</h4>
-                      <p>{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
+            <p>
+              With over a decade of experience in pest control, we’ve helped
+              thousands of homes and businesses stay pest-free. Our commitment
+              to quality and customer satisfaction sets us apart.
+            </p>
+
+            <div className="features">
+              <div className="feature">
+                <span>✓</span> Professional & Trained Technicians
+              </div>
+              <div className="feature">
+                <span>✓</span> Eco-Friendly & Safe Products
+              </div>
+              <div className="feature">
+                <span>✓</span> Affordable Pricing
+              </div>
+              <div className="feature">
+                <span>✓</span> Same Day Service Available
+              </div>
+              <div className="feature">
+                <span>✓</span> 1-5 Years Service Warranty
+              </div>
+              <div className="feature">
+                <span>✓</span> 24/7 Customer Support
               </div>
             </div>
-
-            {/* RIGHT */}
-            <div className="why-right">
-              <div className="cta-card">
-                <div className="cta-icon">🐞</div>
-                <h3>Got a Pest Problem?</h3>
-                <p>
-                  Contact us today for a free inspection and quote. We'll help you
-                  get rid of pests fast!
-                </p>
-                <a href="#contact" className="cta-btn">
-                  Get Free Inspection
-                </a>
-              </div>
-            </div>
-
           </div>
+
+          {/* RIGHT CARD */}
+          <div className="why-card">
+            <div className="guarantee">
+              <div className="shield">🛡️</div>
+              <div>
+                <h3>100% Guaranteed</h3>
+                <p>Pest-Free Results</p>
+              </div>
+            </div>
+
+            <div className="stars">
+              {[1,2,3].map((i) => (
+                <div className="star-row" key={i}>
+                  <div>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                  </div>
+                  <span>5.0 Rating</span>
+                </div>
+              ))}
+            </div>
+
+            <a href="tel:+919999999999" className="quote-btn">
+              📞 Get Free Quote
+            </a>
+          </div>
+
         </div>
       </section>
     </>

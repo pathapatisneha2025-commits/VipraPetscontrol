@@ -1,126 +1,184 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { FiMenu, FiX } from "react-icons/fi";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [shrink, setShrink] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
+
+  // Shrink navbar on scroll
+  useEffect(() => {
+    const onScroll = () => setShrink(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <>
-      <style>{`
+    <nav className={`navbar ${shrink ? "shrink" : ""}`}>
+      <div className="nav-container">
+
+        {/* LOGO */}
+        <Link to="/" className="nav-logo">
+          <img src="/Logoimage.jpeg" alt="VIPRA" />
+        </Link>
+
+        {/* HAMBURGER */}
+        <button
+          className="menu-btn"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle Menu"
+        >
+          {mobileOpen ? <FiX /> : <FiMenu />}
+        </button>
+
+        {/* LINKS */}
+        <ul className={`nav-links ${mobileOpen ? "open" : ""}`}>
+          <li><Link to="/" className={location.pathname === "/" ? "active" : ""}>Home</Link></li>
+          <li><Link to="/services" className={location.pathname === "/services" ? "active" : ""}>Services</Link></li>
+          <li><Link to="/about" className={location.pathname === "/about" ? "active" : ""}>About Us</Link></li>
+          <li><Link to="/contact" className={location.pathname === "/contact" ? "active" : ""}>Contact</Link></li>
+
+          {/* MOBILE CALL */}
+          <li className="mobile-call">
+            <a href="tel:+919999999999">📞 Call Now</a>
+          </li>
+        </ul>
+
+        {/* DESKTOP CALL */}
+        <a href="tel:+919999999999" className="call-btn">
+          📞 Call Now
+        </a>
+      </div>
+
+      {/* STYLES */}
+      <style jsx="true">{`
         .navbar {
-          height: 70px;
+          position: fixed;
+          top: 0;
+          width: 100%;
+          height: 72px;
           background: linear-gradient(90deg, #050b14, #000);
           display: flex;
           align-items: center;
-          justify-content: space-between;
-          padding: 0 40px;
-          color: #fff;
-          position: sticky;
-          top: 0;
           z-index: 1000;
+          transition: 0.3s ease;
+          border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
-        .nav-logo {
+        .navbar.shrink {
+          height: 62px;
+        }
+
+        .nav-container {
+          max-width: 1300px;
+          width: 100%;
+          margin: auto;
+          padding: 0 24px;
           display: flex;
           align-items: center;
-          gap: 10px;
-          font-size: 20px;
-          font-weight: bold;
+          justify-content: space-between;
         }
 
         .nav-logo img {
-          width: 40px;
-          height: 40px;
+          width: ${shrink ? "60px" : "75px"};
+          transition: 0.3s ease;
         }
 
         .nav-links {
           display: flex;
+          gap: 36px;
           list-style: none;
-          gap: 30px;
         }
 
-        .nav-links li {
-          cursor: pointer;
+        .nav-links a {
           color: #cfd8dc;
-          font-size: 16px;
-          transition: color 0.3s;
-        }
-
-        .nav-links li:hover,
-        .nav-links .active {
-          color: #1e90ff;
-        }
-
-        .nav-btn {
-          background: #1e90ff;
-          padding: 10px 18px;
-          border-radius: 8px;
-          color: white;
           text-decoration: none;
-          font-weight: 500;
-          transition: background 0.3s;
+          font-weight: 600;
+          font-size: 15px;
         }
 
-        .nav-btn:hover {
-          background: #187bcd;
+        .nav-links a.active,
+        .nav-links a:hover {
+          color: #9be22d;
+        }
+
+        .call-btn {
+          background: #9be22d;
+          color: #000;
+          padding: 12px 22px;
+          border-radius: 30px;
+          font-weight: 700;
+          text-decoration: none;
         }
 
         /* HAMBURGER */
-        .hamburger {
+        .menu-btn {
           display: none;
-          font-size: 28px;
+          background: none;
+          border: none;
+          font-size: 30px;
+          color: #fff;
           cursor: pointer;
+          z-index: 1100;
+        }
+
+        .mobile-call {
+          display: none;
         }
 
         /* MOBILE */
         @media (max-width: 900px) {
+          .menu-btn {
+            display: block;
+          }
+
+          .call-btn {
+            display: none;
+          }
+
           .nav-links {
             position: absolute;
-            top: 70px;
+            top: 72px;
             left: 0;
             width: 100%;
             background: #050b14;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
-            padding: 30px 0;
-            display: none;
+            gap: 22px;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+          }
+
+          .navbar.shrink .nav-links {
+            top: 62px;
           }
 
           .nav-links.open {
-            display: flex;
+            max-height: 420px;
+            padding: 28px 0;
           }
 
-          .nav-btn {
-            display: none;
-          }
-
-          .hamburger {
+          .mobile-call {
             display: block;
+          }
+
+          .mobile-call a {
+            background: #9be22d;
+            color: #000;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 700;
           }
         }
       `}</style>
-
-      <nav className="navbar">
-        {/* LOGO */}
-        <div className="nav-logo">
-          <img src="/Logoimage.jpeg" alt="VIPRA" />
-          <span>VIPRA</span>
-        </div>
-
-        {/* LINKS */}
-        <ul className={`nav-links ${open ? "open" : ""}`}>
-          <li className="active" onClick={() => setOpen(false)}>Home</li>
-          <li onClick={() => setOpen(false)}>About</li>
-          <li onClick={() => setOpen(false)}>Services</li>
-          <li onClick={() => setOpen(false)}>Contact</li>
-        </ul>
-
-      
-        {/* HAMBURGER */}
-        <div className="hamburger" onClick={() => setOpen(!open)}>
-          {open ? "✖" : "☰"}
-        </div>
-      </nav>
-    </>
+    </nav>
   );
 }
