@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
   return (
     <>
       <style>{`
@@ -10,6 +14,9 @@ export default function Navbar() {
           justify-content: space-between;
           padding: 0 40px;
           color: #fff;
+          position: sticky;
+          top: 0;
+          z-index: 1000;
         }
 
         .nav-logo {
@@ -56,24 +63,67 @@ export default function Navbar() {
         .nav-btn:hover {
           background: #187bcd;
         }
+
+        /* HAMBURGER */
+        .hamburger {
+          display: none;
+          font-size: 28px;
+          cursor: pointer;
+        }
+
+        /* MOBILE */
+        @media (max-width: 900px) {
+          .nav-links {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background: #050b14;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 30px 0;
+            display: none;
+          }
+
+          .nav-links.open {
+            display: flex;
+          }
+
+          .nav-btn {
+            display: none;
+          }
+
+          .hamburger {
+            display: block;
+          }
+        }
       `}</style>
 
       <nav className="navbar">
+        {/* LOGO */}
         <div className="nav-logo">
           <img src="/Logoimage.jpeg" alt="VIPRA" />
           <span>VIPRA</span>
         </div>
 
-        <ul className="nav-links">
-          <li className="active">Home</li>
-          <li>About</li>
-          <li>Services</li>
-          <li>Contact</li>
+        {/* LINKS */}
+        <ul className={`nav-links ${open ? "open" : ""}`}>
+          <li className="active" onClick={() => setOpen(false)}>Home</li>
+          <li onClick={() => setOpen(false)}>About</li>
+          <li onClick={() => setOpen(false)}>Services</li>
+          <li onClick={() => setOpen(false)}>Contact</li>
         </ul>
 
+        {/* DESKTOP CALL BUTTON */}
         <a href="tel:+919999999999" className="nav-btn">
           📞 Call Now
         </a>
+
+        {/* HAMBURGER */}
+        <div className="hamburger" onClick={() => setOpen(!open)}>
+          {open ? "✖" : "☰"}
+        </div>
       </nav>
     </>
   );
