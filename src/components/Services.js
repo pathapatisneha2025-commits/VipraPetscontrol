@@ -1,12 +1,12 @@
 const services = [
   {
-    icon: "🪳",
+    image: "/cockroaches.jpg",
     title: "Cockroach Control",
     desc: "Advanced gel baiting and odorless sprays target cockroaches in kitchens, bathrooms, and hidden cracks. Safe for kids & pets with long-lasting protection.",
     tags: ["Safe for kids & pets", "Long-lasting protection"],
   },
   {
-    icon: "🦟",
+    image: "/mosquitecontrol.jpg",
     title: "Mosquito Control",
     desc: "Fogging, larvicide spraying, and outdoor control to stop breeding and protect against Dengue, Malaria, and Chikungunya.",
     tags: ["Best for homes", "Outdoor control"],
@@ -125,17 +125,35 @@ export default function Services() {
           box-shadow: 0 25px 60px rgba(0,0,0,0.6);
         }
 
-        .icon-box {
-          width: 54px;
-          height: 54px;
-          background: linear-gradient(135deg, #143b73, #0d2545);
-          border-radius: 14px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 26px;
-          margin-bottom: 22px;
-        }
+     .icon-box {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  margin-bottom: 22px;
+}
+
+.icon-box img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #143b73, #0d2545);
+  padding: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+}
+
+.icon-box span {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #143b73, #0d2545);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+}
+
 
         .service-card h3 {
           font-size: 22px;
@@ -198,7 +216,14 @@ export default function Services() {
           <div className="services-grid">
             {services.map((service, index) => (
               <div className="service-card" key={index}>
-                <div className="icon-box">{service.icon}</div>
+<div className="icon-box">
+  {service.image ? (
+    <img src={service.image} alt={service.alt || service.title} />
+  ) : (
+    <span>{service.icon}</span>
+  )}
+</div>
+
                 <h3>{service.title}</h3>
                 <p>{service.desc}</p>
 
