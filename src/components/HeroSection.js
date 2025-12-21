@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function HeroSection() {
   return (
     <>
@@ -18,29 +20,19 @@ export default function HeroSection() {
           margin: auto;
         }
 
-        /* ANIMATED BRAND TEXT */
-        .brand-text {
-          font-size: 90px;
+        /* NEW ANIMATED WORD LOGO */
+        .animated-logo-text {
+          font-size: 80px;
           font-weight: 900;
-          letter-spacing: 6px;
+          letter-spacing: 8px;
           margin-bottom: 30px;
-          background: linear-gradient(90deg, #9be22d, #4aa3ff, #9be22d);
-          background-size: 200% auto;
+          display: inline-block;
+          background: linear-gradient(to bottom, #ffffff, #9be22d);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          animation: shine 4s linear infinite, float 4s ease-in-out infinite;
-          text-shadow: 0 0 30px rgba(155, 226, 45, 0.4);
-        }
-
-        @keyframes shine {
-          to {
-            background-position: 200% center;
-          }
-        }
-
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-12px); }
+          filter: drop-shadow(0 0 15px rgba(155, 226, 45, 0.3));
+          animation: floatText 4s ease-in-out infinite;
+          text-transform: uppercase;
         }
 
         .hero h1 {
@@ -83,10 +75,12 @@ export default function HeroSection() {
           align-items: center;
           gap: 10px;
           box-shadow: 0 0 30px rgba(155, 226, 45, 0.5);
+          transition: 0.3s;
         }
 
         .btn-primary:hover {
           background: #86c91f;
+          transform: translateY(-3px);
         }
 
         .btn-outline {
@@ -99,28 +93,42 @@ export default function HeroSection() {
           display: inline-flex;
           align-items: center;
           gap: 10px;
+          transition: 0.3s;
         }
 
         .btn-outline:hover {
           background: rgba(74, 163, 255, 0.1);
+          transform: translateY(-3px);
+        }
+
+        @keyframes floatText {
+          0%, 100% { 
+            transform: translateY(0) scale(1); 
+            filter: drop-shadow(0 0 15px rgba(155, 226, 45, 0.3));
+          }
+          50% { 
+            transform: translateY(-15px) scale(1.05); 
+            filter: drop-shadow(0 15px 25px rgba(155, 226, 45, 0.5));
+          }
         }
 
         @media (max-width: 768px) {
-          .brand-text {
-            font-size: 54px;
-          }
-
           .hero h1 {
             font-size: 42px;
+          }
+          .animated-logo-text {
+            font-size: 50px;
+            letter-spacing: 4px;
           }
         }
       `}</style>
 
       <section className="hero">
         <div className="hero-content">
-
-          {/* ANIMATED WORD INSTEAD OF LOGO */}
-          <div className="brand-text">VIPRA</div>
+          {/* ANIMATED WORD LOGO REPLACING IMAGE */}
+          <div className="animated-logo-text">
+            VIPRA
+          </div>
 
           {/* HEADING */}
           <h1>
@@ -140,9 +148,9 @@ export default function HeroSection() {
               📞 Call For Free Inspection
             </a>
 
-            <a href="#services" className="btn-outline">
+            <Link to="/services" className="btn-outline">
               View Services →
-            </a>
+            </Link>
           </div>
         </div>
       </section>
