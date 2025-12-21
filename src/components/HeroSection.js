@@ -18,11 +18,29 @@ export default function HeroSection() {
           margin: auto;
         }
 
-        .hero-logo {
-          width: 300px;
-          height: 300px;
+        /* ANIMATED BRAND TEXT */
+        .brand-text {
+          font-size: 90px;
+          font-weight: 900;
+          letter-spacing: 6px;
           margin-bottom: 30px;
-          animation: float 4s ease-in-out infinite;
+          background: linear-gradient(90deg, #9be22d, #4aa3ff, #9be22d);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: shine 4s linear infinite, float 4s ease-in-out infinite;
+          text-shadow: 0 0 30px rgba(155, 226, 45, 0.4);
+        }
+
+        @keyframes shine {
+          to {
+            background-position: 200% center;
+          }
+        }
+
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-12px); }
         }
 
         .hero h1 {
@@ -87,30 +105,22 @@ export default function HeroSection() {
           background: rgba(74, 163, 255, 0.1);
         }
 
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-12px); }
-        }
-
         @media (max-width: 768px) {
-          .hero h1 {
-            font-size: 42px;
+          .brand-text {
+            font-size: 54px;
           }
 
-          .hero-logo {
-            width: 140px;
+          .hero h1 {
+            font-size: 42px;
           }
         }
       `}</style>
 
       <section className="hero">
         <div className="hero-content">
-          {/* LOGO */}
-          <img
-            src="/Logoimage.jpeg"
-            alt="VIPRA Pest Control"
-            className="hero-logo"
-          />
+
+          {/* ANIMATED WORD INSTEAD OF LOGO */}
+          <div className="brand-text">VIPRA</div>
 
           {/* HEADING */}
           <h1>
