@@ -48,6 +48,24 @@ export default function Services() {
           gap: 24px;
           margin-top: 50px;
         }
+.service-img {
+  width: 100%;
+  height: 160px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.service-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .service-img img {
+  transform: scale(1.08);
+}
 
         .card {
           background: radial-gradient(120% 120% at 0% 0%, #0b1220 0%, #020617 70%);
@@ -165,71 +183,84 @@ export default function Services() {
         {/* SERVICES */}
         <div className="services">
           <div className="card">
-            <div className="icon"><FaBug /></div>
-            <h3>Cockroach Control</h3>
+ <div className="service-img">
+    <img src="/cockroaches.jpg" alt="Cockroach Control" />
+  </div>            <h3>Cockroach Control</h3>
             <p>Cockroaches spread infections and contaminate food. Our advanced gel baiting and odorless sprays target kitchens, bathrooms, and hidden cracks.</p>
             <div className="tags"><span className="tag">Safe for kids & pets</span><span className="tag">Long-lasting</span></div>
           </div>
 
           <div className="card">
-            <div className="icon"><FaBolt /></div>
-            <h3>Mosquito Control</h3>
+ <div className="service-img">
+    <img src="/mosquitecontrol.jpg" alt="Mosquito Control" />
+  </div>            <h3>Mosquito Control</h3>
             <p>Fogging, larvicide spraying, and outdoor mosquito control to prevent Dengue, Malaria, and Chikungunya.</p>
             <div className="tags"><span className="tag">Homes</span><span className="tag">Gated Communities</span><span className="tag">Commercial</span></div>
           </div>
 
           <div className="card">
-            <div className="icon"><FaHome /></div>
-            <h3>Termite Control</h3>
+ <div className="service-img">
+    <img src="/terminatecontrol.jpeg" alt="Termite Control" />
+  </div>            <h3>Termite Control</h3>
             <p>Pre & post construction anti-termite treatment using chemical barriers, drilling-injection, and soil treatment.</p>
             <div className="tags"><span className="tag">Pre & Post Construction</span><span className="tag">1–5 Years Warranty</span></div>
           </div>
 
           <div className="card">
-            <div className="icon"><FaBug /></div>
-            <h3>Bed Bug Control</h3>
+ <div className="service-img">
+    <img src="/bedbug.jpeg" alt="Bed Bug Control" />
+  </div>            <h3>Bed Bug Control</h3>
             <p>Herbal + chemical combination treatment to eliminate bed bugs from mattresses, furniture, and curtains.</p>
             <div className="tags"><span className="tag">Two-Step Treatment</span><span className="tag">Complete Eradication</span></div>
           </div>
 
           <div className="card">
-            <div className="icon"><FaBolt /></div>
-            <h3>Rat & Rodent Control</h3>
+ <div className="service-img">
+    <img src="/ratandrodent.jpeg" alt="Rat & Rodent Control" />
+  </div>            <h3>Rat & Rodent Control</h3>
             <p>Traps, baiting systems, and entry-point blocking to eliminate rats and rodents.</p>
             <div className="tags"><span className="tag">Homes</span><span className="tag">Warehouses</span><span className="tag">Restaurants</span></div>
           </div>
 
           <div className="card">
-            <div className="icon"><FaHome /></div>
-            <h3>Lizard Control</h3>
+ <div className="service-img">
+    <img src="/lizardcontrol.jpeg" alt="Lizard Control" />
+  </div>            <h3>Lizard Control</h3>
             <p>Odorless surface sprays and repellent formulas that prevent lizards from entering or sticking to walls.</p>
             <div className="tags"><span className="tag">Safe</span><span className="tag">Highly Effective</span></div>
           </div>
+<div className="card">
+  <div className="service-img">
+    <img src="/honeybee.jpeg" alt="Honeybee Removal" />
+  </div>
+  <h3>Honeybee Removal</h3>
+  <p>Eco-friendly honeybee removal and safe relocation without damaging your property.</p>
+  <div className="tags">
+    <span className="tag">Eco-Friendly</span>
+    <span className="tag">Expert Handled</span>
+  </div>
+</div>
 
           <div className="card">
-            <div className="icon"><FaBug /></div>
-            <h3>Honeybee Removal</h3>
-            <p>Eco-friendly honeybee removal and safe relocation without damaging your property.</p>
-            <div className="tags"><span className="tag">Eco-Friendly</span><span className="tag">Expert Handled</span></div>
-          </div>
-
-          <div className="card">
-            <div className="icon"><FaBug /></div>
-            <h3>Red & Black Ant Control</h3>
+ <div className="service-img">
+    <img src="/redanttreatment.jpeg" alt="redant Removal" />
+  </div>            <h3>Red & Black Ant Control</h3>
             <p>Gel baiting and odorless residual sprays targeting ant colonies and preventing re-infestation.</p>
             <div className="tags"><span className="tag">Indoor</span><span className="tag">Outdoor</span></div>
           </div>
 
           <div className="card">
-            <div className="icon"><FaHome /></div>
-            <h3>Snake Repellent Treatment</h3>
+ <div className="service-img">
+    <img src="/snaketreatment.jpeg" alt="Honeybee Removal" />
+  </div>            <h3>Snake Repellent Treatment</h3>
             <p>Herbal repellents and eco-friendly methods to keep snakes away from farms, gardens, and basements.</p>
             <div className="tags"><span className="tag">No Harm to Snake</span><span className="tag">Repellent Only</span></div>
           </div>
 
           <div className="card">
-            <div className="icon"><FaHome /></div>
-            <h3>Oil Spray for Woodwork</h3>
+ <div className="service-img">
+    <img src="/oilspraywood.jpeg" alt="oil spray wood" />
+  </div>            <h3>Oil Spray for Woodwork</h3>
             <p>Special oil-based treatment for wooden furniture, doors, cupboards, and kitchen cabinets.</p>
             <div className="tags"><span className="tag">Anti-Termite</span><span className="tag">Moisture Protection</span></div>
           </div>
